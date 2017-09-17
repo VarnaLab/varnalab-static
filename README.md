@@ -1,6 +1,40 @@
 
 # varnalab-static
 
+## Config
+
+```json
+{
+  "production": {
+    "scheme": "https",
+    "host": "varnalab.org",
+    "path": "",
+    "port": 5050,
+    "assets": "/home/varnalab/projects/varnalab-static",
+    "html": "/home/varnalab/config/varnalab-static/build",
+    "api": "https://box.outofindex.com/varnalab/api"
+  }
+}
+```
+
+## Render
+
+```bash
+node varnalab-static/bin/ \
+  --config /path/to/config.json \
+  --env production \
+  --render /path/to/build/location/
+```
+
+## Server
+
+```bash
+node varnalab-static/bin/ \
+  --config /path/to/config.json \
+  --env production \
+  --server
+```
+
 ## NginX Router
 
 ```nginx

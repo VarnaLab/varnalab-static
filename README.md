@@ -1,0 +1,2 @@
+
+# varnalab-static

@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="span9">
+
+    <section>
+      <h3 class="section-title">
+        <span>предстоящи събития</span>
+      </h3>
+
+      {{#upcoming}}
+      {{>event}}
+      <hr />
+      {{/upcoming}}
+
+      {{^upcoming}}
+      <p>Няма предстоящи събития</p>
+      {{/upcoming}}
+
+      <p class="v-past-events">
+        <a href="{{path}}/events"> Виж всички събития</a>
+      </p>
+
+      <br class="clearfix" />
+
+    </section>
+
+    <!-- {{>blogs}} -->
+
+  </div>
+
+  {{>sidebar}}
+</div>

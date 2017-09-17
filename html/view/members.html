@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="span9">
+
+    <section>
+      <h3 class="section-title">
+        <span>Лабъри</span>
+      </h3>
+
+      {{#members}}
+      <div class="section-item member">
+        <article>
+          <img src="https://gravatar.com/avatar/{{gravatar}}?size=64&d=monsterid" alt="{{name}}" title="{{name}}" class="avatar pull-left" />
+          <p>
+            <strong>{{name}}</strong>
+            {{#twitter}}
+            <a href="https://twitter.com/{{twitter}}"><img src="{{path}}/images/icon-twitter.jpg" alt="{{twitter}}" alt="{{twitter}}" /></a>
+            {{/twitter}}
+            {{#github}}
+            <a href="https://github.com/{{github}}"><img src="{{path}}/images/icon-github.jpg" alt="{{github}}" alt="{{github}}" /></a>
+            {{/github}}
+          </p>
+          <br class="clear" />
+        </article>
+      </div>
+
+      <hr />
+      {{/members}}
+
+      <br class="clearfix" />
+
+    </section>
+
+  </div>
+  {{>sidebar}}
+</div>

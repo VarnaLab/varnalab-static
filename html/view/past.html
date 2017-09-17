@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="span9">
+
+    <section>
+
+      <h3 class="section-title">
+        <span>изминали събития</span>
+      </h3>
+
+      {{#events}}
+      {{>event}}
+      <hr />
+      {{/events}}
+
+      <p class="v-past-events">
+        {{#prev}}
+        <a href="{{path}}/events/{{prev}}" class="pull-left"> предишна</a>
+        {{/prev}}
+        <a href="{{path}}/events"> начало</a>
+        {{#next}}
+        <a href="{{path}}/events/{{next}}" class="pull-right"> следваща</a>
+        {{/next}}
+      </p>
+      <div class="clear"></div>
+
+    </section>
+
+  </div>
+  {{>sidebar}}
+</div>

@@ -1,0 +1,20 @@
+<div id="mobile-overlay"></div>
+<div id="mobile-content">
+  <a href="https://varnalab.github.io" class="message">Виж мобилната версия</a>
+  <a href="#" class="quit">затвори</a>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  if (window.innerWidth < 980) {
+    window.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('#mobile-content .quit')
+        .addEventListener('click', function () {
+          document.querySelector('#mobile-overlay').style.display = 'none'
+          document.querySelector('#mobile-content').style.display = 'none'
+        })
+
+      document.querySelector('#mobile-overlay').style.display = 'block'
+      document.querySelector('#mobile-content').style.display = 'block'
+    })
+  }
+</script>

@@ -19,7 +19,7 @@ module.exports = (config) => {
   app.use(`${prefix}/links`, static(config.html, {index: 'links.html'}))
   app.use(`${prefix}/contacts`, static(config.html, {index: 'contacts.html'}))
 
-  app.use(`${prefix}/events:page`, (req, res) => {
+  app.use(`${prefix}/events/:page`, (req, res) => {
     fs.readFile(
       path.join(config.html, '/events', `${req.params.page}.html`),
       'utf8',

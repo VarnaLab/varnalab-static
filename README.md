@@ -1,6 +1,38 @@
 
 # varnalab-static
 
+## Install
+
+```bash
+# install Node Version Manager
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
+# install Node 8
+nvm install 8
+# clone this repo
+git clone https://github.com/VarnaLab/varnalab-static.git
+# enter project's folder
+cd varnalab-static
+# install deps
+npm i
+# create config.json
+{
+  "development": {
+    "scheme": "http",
+    "host": "localhost:3000",
+    "path": "",
+    "port": 3000,
+    "assets": "/path/to/varnalab-static",
+    "html": "/path/to/varnalab-static/build",
+    "api": "https://box.outofindex.com/varnalab/api"
+  }
+}
+# render in the current folder (notice the `.` at the end)
+node bin/ --config config.json --env development --render .
+# serve the static files using NodeJS
+node bin/ --config config.json --env development --server
+# navigate to http://localhost:3000 in your favorite browser
+```
+
 ## Config
 
 ```json

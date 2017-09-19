@@ -15,6 +15,19 @@ module.exports = (config) => {
     }
   })
 
+  var format = (event) => (
+    event.time1 = moment(event.start_time).format('LL'),
+    event.time2 = moment(event.start_time).format('LLLL').split(',')[0],
+    event.time3 = moment(event.start_time).format('LT'),
+    event.description = (event.description || '')
+      .replace(/\n/gi, '<br>')
+      .replace(
+        /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi,
+        (url) => `<a href="${url}">${url}</a>`
+      ),
+    event
+  )
+
   var upcoming = () =>
     varnalab
       .get('events/upcoming')
@@ -22,12 +35,7 @@ module.exports = (config) => {
       .then(([res, body]) =>
         body
           .sort((a, b) => new Date(a.start_time) - new Date(b.start_time))
-          .map((event) => (
-            event.time1 = moment(event.start_time).format('LL'),
-            event.time2 = moment(event.start_time).format('LLLL').split(',')[0],
-            event.time3 = moment(event.start_time).format('LT'),
-            event
-          ))
+          .map((event) => format(event))
       )
 
   var events = () =>
@@ -38,12 +46,7 @@ module.exports = (config) => {
       .then(([res, body]) =>
         body
         .filter((event) => new Date(event.start_time) < new Date())
-        .map((event) => (
-          event.time1 = moment(event.start_time).format('LL'),
-          event.time2 = moment(event.start_time).format('LLLL').split(',')[0],
-          event.time3 = moment(event.start_time).format('LT'),
-          event
-        ))
+        .map((event) => format(event))
       )
 
   var members = () =>

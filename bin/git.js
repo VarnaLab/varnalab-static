@@ -64,7 +64,7 @@ module.exports = (config) => {
 
     cp.exec(cmd, (err) => {
       if (err) {
-        next(err.message)
+        next(err)
         return
       }
       res.end('OK')
@@ -74,7 +74,7 @@ module.exports = (config) => {
   api.use((err, req, res, next) => {
     console.error(err.message)
     console.error(err.stack)
-    res.end(err.message)
+    res.status(400).end(err.message)
   })
 
   return api

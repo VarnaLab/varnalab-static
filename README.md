@@ -23,7 +23,13 @@ npm i
     "port": 3000,
     "assets": "/path/to/varnalab-static",
     "html": "/path/to/varnalab-static/build",
-    "api": "https://box.outofindex.com/varnalab/api"
+    "api": "https://box.outofindex.com/varnalab/api",
+    "git": {
+      "repo": "/path/to/varnalab-static",
+      "remote": "origin",
+      "branch": "master",
+      "secret": ""
+    }
   }
 }
 # render in the current folder (notice the `.` at the end)
@@ -44,7 +50,13 @@ node bin/ --config config.json --env development --server
     "port": 5050,
     "assets": "/home/varnalab/projects/varnalab-static",
     "html": "/home/varnalab/config/varnalab-static/build",
-    "api": "https://box.outofindex.com/varnalab/api"
+    "api": "https://box.outofindex.com/varnalab/api",
+    "git": {
+      "repo": "/home/s/projects/varnalab-static",
+      "remote": "varnalab",
+      "branch": "master",
+      "secret": "..."
+    }
   }
 }
 ```
@@ -70,6 +82,11 @@ node varnalab-static/bin/ \
 ## NginX Router
 
 ```nginx
+location ~ /api/?(.*)/? {
+  set $endpoint $1;
+  proxy_pass http://127.0.0.1:5050/api/$endpoint;
+}
+
 location ~ /(css|js|images)/(.*) {
   root /home/varnalab/projects/varnalab-static;
   try_files /$1/$2 =404;

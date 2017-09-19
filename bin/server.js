@@ -3,11 +3,16 @@ var fs = require('fs')
 var path = require('path')
 var express = require('express')
 var static = require('serve-static')
+var parser = require('body-parser')
+var git = require('./git')
 
 
 module.exports = (config) => {
   var prefix = config.path || ''
   var app = express()
+
+  app.use(parser.json())
+  app.use(`${prefix}/api`, git(config))
 
   app.use(`${prefix}/css`, static(path.join(config.assets, '/css')))
   app.use(`${prefix}/js`, static(path.join(config.assets, '/js')))

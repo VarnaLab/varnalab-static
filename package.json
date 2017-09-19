@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@request/client": "^0.1.0",
+    "body-parser": "^1.18.1",
     "express": "^4.15.4",
     "hogan.js": "^3.0.2",
     "minimist": "^1.2.0",

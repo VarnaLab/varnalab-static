@@ -73,8 +73,7 @@ module.exports = (config) => {
   api.use((err, req, res, next) => {
     console.error(err.message)
     console.error(err.stack)
-    res.status(err.code)
-    res.end(err.message)
+    res.status(err.code).send(err.message)
   })
 
   return api

@@ -58,21 +58,21 @@ var views = [
 ]
 .reduce((all, template) => (
   all[template] = {
-    header: layout.header,
-    sidebar: layout.sidebar,
-    footer: layout.footer,
+    'layout/header': layout.header,
+    'layout/sidebar': layout.sidebar,
+    'layout/footer': layout.footer,
 
-    content: compile('view', template),
+    'view/content': compile('view', template),
 
-    whois: widgets.whois,
-    facebook: widgets.facebook,
-    twitter: widgets.twitter,
-    google: widgets.google,
-    calendar: widgets.calendar,
-    map: widgets.map,
-    mobile: widgets.mobile,
+    'widget/whois': widgets.whois,
+    'widget/facebook': widgets.facebook,
+    'widget/twitter': widgets.twitter,
+    'widget/google': widgets.google,
+    'widget/calendar': widgets.calendar,
+    'widget/map': widgets.map,
+    'widget/mobile': widgets.mobile,
 
-    event: content.event,
+    'content/event': content.event,
   },
   all
 ), {})

@@ -1,4 +1,6 @@
 npm-debug.log
+build/
 coverage/
 node_modules/
 package-lock.json
+config.json

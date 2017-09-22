@@ -1,4 +1,3 @@
-
 var utils = {
   url: ({scheme, host, path}, endpoint) =>
     scheme + '://' + host + path.replace(/\/$/, '') + endpoint,
@@ -12,20 +11,13 @@ var utils = {
 
 var defaults = [
   {"charset": "utf-8"},
-  {
-    "name": "viewport",
-    "content": "width=device-width, initial-scale=1"
-  },
+  {"name": "viewport", "content": "width=device-width, initial-scale=1"},
   {"name": "theme-color", "content": "#000"},
   // {"name": "author", "content": "Simeon Velichkov"},
   {"name": "copyright", "content": "VarnaLab"},
   {"name": "robots", "content": "follow,index"},
   {"name": "title", "content": "VarnaLab"},
-  {
-    "name": "keywords",
-    "content": "varnalab, hackerspace, varna, bulgaria",
-    "lang": "en-us"
-  },
+  {"name": "keywords", "content": "varnalab, hackerspace, varna, bulgaria", "lang": "en-us"},
   {"name": "description", "content": "VarnaLab"},
 ]
 
@@ -43,9 +35,9 @@ module.exports = {
   ],
   defaults: (args) => defaults.concat([
     {property: 'og:title', content: 'VarnaLab'},
-    {property: 'og:description', content: 'VarnaLab Hackerspace'},
+    {property: 'og:description', content: 'VarnaLab - свободно място за споделяне на знание, идеи и технологии.'},
     {property: 'og:image', content: utils.url(args, '/images/meta-cover.png')},
-    {property: 'og:image:alt', content: 'VarnaLab Logo'},
+    {property: 'og:image:alt', content: 'VarnaLab Cover'},
     {property: 'og:url', content: utils.url(args, '/')},
     {property: 'og:site_name', content: 'VarnaLab'},
     {property: 'og:type', content: 'website'},

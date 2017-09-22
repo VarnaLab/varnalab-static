@@ -8190,3 +8190,28 @@ header:after { content: ''; display: block; clear: both; }
 /******************** END simov ********************/
 /******************** END simov ********************/
 /******************** END simov ********************/
+
+
+
+/******************** popjelev ********************/
+/******************** popjelev ********************/
+/******************** popjelev ********************/
+
+.links dt {
+  margin: 10px 0 0 0;
+}
+.links dd {
+  padding: 0 0 5px 100px;
+  margin: 0;
+}
+
+footer a:hover,
+footer a:focus {
+    text-decoration: none;
+}
+
+/******************** END popjelev ********************/
+/******************** END popjelev ********************/
+/******************** END popjelev ********************/
+
+

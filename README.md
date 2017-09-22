@@ -1,6 +1,8 @@
 
 # varnalab-static
 
+Using http://mustache.github.io/ logic-less templates.
+
 ## Install
 
 ```bash

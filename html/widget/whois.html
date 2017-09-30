@@ -18,10 +18,13 @@
   function render (online, users) {
     var dom
 
-    if (!online || !users || (
+    if (!online || online.error || !users || users.error) {
+      dom = '<li><em>Услугата временно не е налична!</em></li>'
+    }
+    else if (
       (online.known && !online.known.length) &&
       (online.unknown && !online.unknown.length)
-    )) {
+    ) {
       dom = '<li><em>Няма никой!</em></li>'
     }
     else {

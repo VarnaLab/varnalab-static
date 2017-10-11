@@ -34,7 +34,6 @@ module.exports = (config) => {
       .request()
       .then(([res, body]) =>
         body
-          .sort((a, b) => new Date(a.start_time) - new Date(b.start_time))
           .map((event) => format(event))
       )
 

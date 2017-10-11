@@ -8077,6 +8077,21 @@ header:after { content: ''; display: block; clear: both; }
   background-position: center;
   background-repeat: repeat;
   height: 12.313rem;
+  position: relative;
+}
+.v-event .cover .live {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .7);
+  width: 90%;
+  padding: 10px 5%;
+  font-size: 28px;
+  line-height: 30px;
+  color: #64dd17;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 .v-event article {
   font-size: 16px;

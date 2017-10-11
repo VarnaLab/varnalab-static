@@ -28,6 +28,13 @@ module.exports = (config) => {
     event
   )
 
+  var live = (event) =>
+    new Date(event.start_time).getTime()
+      <= new Date().getTime()
+    &&
+    new Date(event.end_time || event.start_time).getTime()
+      >= new Date().getTime()
+
   var upcoming = () =>
     varnalab
       .get('events/upcoming')
@@ -35,6 +42,7 @@ module.exports = (config) => {
       .then(([res, body]) =>
         body
           .map((event) => format(event))
+          .map((event) => (event.live = live(event), event))
       )
 
   var events = () =>

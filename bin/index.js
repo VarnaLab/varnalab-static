@@ -39,9 +39,12 @@ if (argv.render) {
   var location = path.resolve(process.cwd(), argv.render)
   if (!fs.existsSync(location)) {
     fs.mkdirSync(location)
-    if (!fs.existsSync(path.join(location, '/events'))) {
-      fs.mkdirSync(path.join(location, '/events'))
-    }
+  }
+  if (!fs.existsSync(path.join(location, '/events'))) {
+    fs.mkdirSync(path.join(location, '/events'))
+  }
+  if (!fs.existsSync(path.join(location, '/articles'))) {
+    fs.mkdirSync(path.join(location, '/articles'))
   }
   render(config, location)
     .then(() => console.log('VarnaLab Static Render Complete'))

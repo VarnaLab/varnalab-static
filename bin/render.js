@@ -55,6 +55,8 @@ var views = [
   'members',
   'links',
   'contacts',
+  'articles',
+  'article',
 ]
 .reduce((all, template) => (
   all[template] = {
@@ -121,6 +123,21 @@ var Render = (location, context) => ({
           'utf8'
         )
       })
+  },
+
+  articles: () => {
+    var articles = context.articles
+    var partials = views.article
+
+    return articles
+      .map((article) => (
+        context.article = article,
+        write(
+          path.join(location, '/articles/', `${article.slug}.html`),
+          layout.base.render(context, partials),
+          'utf8'
+        )
+      ))
   }
 })
 
@@ -135,12 +152,17 @@ module.exports = async (config, location) => {
     upcoming: await varnalab.upcoming(),
     events: await varnalab.events(),
     members: await varnalab.members(),
+    articles: await varnalab.articles(),
   }
 
-  if (!context.upcoming || !context.events || !context.members) {
+  if (!context.upcoming || !context.events || !context.members || !context.articles) {
     return Promise.reject('REST API Error!')
   }
 
   var render = Render(location, context)
-  return Promise.all(render.views().concat(render.events()))
+  return Promise.all(
+    render.views()
+      .concat(render.events())
+      .concat(render.articles())
+    )
 }

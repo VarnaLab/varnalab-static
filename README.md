@@ -100,6 +100,12 @@ location ~ /events/(\d+) {
 location ~ /events {
   try_files /build/events.html =404;
 }
+location ~ /blogs/(\d+)/(\d+)/(\d+)/(.+) {
+  try_files /build/articles/$4.html =404;
+}
+location ~ /blogs {
+  try_files /build/articles.html =404;
+}
 location ~ /members {
   try_files /build/members.html =404;
 }

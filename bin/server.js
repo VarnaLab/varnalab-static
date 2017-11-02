@@ -20,6 +20,7 @@ module.exports = (config) => {
 
   app.use(`${prefix}/about`, static(config.html, {index: 'about.html'}))
   app.use(`${prefix}/events`, static(config.html, {index: 'events.html'}))
+  app.use(`${prefix}/blogs`, static(config.html, {index: 'articles.html'}))
   app.use(`${prefix}/members`, static(config.html, {index: 'members.html'}))
   app.use(`${prefix}/links`, static(config.html, {index: 'links.html'}))
   app.use(`${prefix}/contacts`, static(config.html, {index: 'contacts.html'}))
@@ -27,6 +28,22 @@ module.exports = (config) => {
   app.use(`${prefix}/events/:page`, (req, res) => {
     fs.readFile(
       path.join(config.html, '/events', `${req.params.page}.html`),
+      'utf8',
+      (err, html) => {
+        if (err) {
+          res.end()
+        }
+        else {
+          res.set('content-type', 'text/html')
+          res.end(html)
+        }
+      }
+    )
+  })
+
+  app.use(`${prefix}/blogs/:y/:m/:d/:slug`, (req, res) => {
+    fs.readFile(
+      path.join(config.html, '/articles', `${req.params.slug}.html`),
       'utf8',
       (err, html) => {
         if (err) {

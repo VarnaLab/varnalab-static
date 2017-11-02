@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="span9">
+
+    <section>
+      <h3 class="section-title">
+        <span>блог [ архив ]</span>
+      </h3>
+
+      {{#articles}}
+      <div class="section-item v-event">
+        <div class="section-date">
+          <strong class="date">{{time1}}</strong>
+          <br />{{time2}}
+          <br />{{time3}}
+        </div>
+        <h2>
+          <a href="{{path}}/{{url}}">{{title}}</a>
+        </h2>
+      </div>
+      <hr />
+      {{/articles}}
+
+      <br class="clearfix" />
+
+    </section>
+
+  </div>
+
+  {{>layout/sidebar}}
+</div>

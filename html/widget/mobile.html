@@ -5,12 +5,13 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-  if (window.innerWidth < 980) {
+  if (!localStorage.getItem('v-mobile') && window.innerWidth < 980) {
     window.addEventListener('DOMContentLoaded', function () {
       document.querySelector('#mobile-content .quit')
         .addEventListener('click', function () {
           document.querySelector('#mobile-overlay').style.display = 'none'
           document.querySelector('#mobile-content').style.display = 'none'
+          localStorage.setItem('v-mobile', true)
         })
 
       document.querySelector('#mobile-overlay').style.display = 'block'

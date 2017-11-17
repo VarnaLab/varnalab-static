@@ -19,12 +19,13 @@ git clone https://github.com/VarnaLab/varnalab-static.git
 cd varnalab-static
 
 # install deps
-npm i
+npm install
 
 # create config.json
 cp config.json.example config.json
 
 # make changes to config.json with your favorite editor
+$EDITOR config.json
 
 # render in the current folder
 node bin/ --config config.json --env development --render ./build/

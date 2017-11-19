@@ -37,6 +37,9 @@ module.exports = (config) => {
       new Date(event.end_time || event.start_time).getTime()
         >= new Date().getTime()
     ,
+    cover: (event) =>
+      event.cover_desktop = event.cover_desktop || 'https://i.imgur.com/VC5g7gp.jpg'
+    ,
     created: (article) => ((date = new Date(article.date)) =>
       article.url = [
         'blogs',
@@ -60,7 +63,10 @@ module.exports = (config) => {
       .get('events/upcoming')
       .request()
       .then(([res, body]) => body
-        .map((event) => (t.start(event), t.links(event), t.live(event), event))
+        .map((event) => (
+          t.start(event), t.links(event),  t.cover(event), t.live(event),
+          event
+        ))
       )
 
   var events = () =>
@@ -70,7 +76,10 @@ module.exports = (config) => {
       .request()
       .then(([res, body]) => body
         .filter((event) => new Date(event.start_time) < new Date())
-        .map((event) => (t.start(event), t.links(event), event))
+        .map((event) => (
+          t.start(event), t.links(event), t.cover(event),
+          event
+        ))
       )
 
   var members = () =>

@@ -8217,6 +8217,17 @@ header:after { content: ''; display: block; clear: both; }
   border-radius: 5px;
 }
 
+.v-finance td {
+  border: 1px solid #2D2D2D;
+  padding: 5px;
+}
+.v-finance .income td {
+  background: #00E5A0;
+}
+.v-finance .expense td {
+  background: #FF727E;
+}
+
 
 /******************** END simov ********************/
 /******************** END simov ********************/

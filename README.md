@@ -116,6 +116,9 @@ location ~ /links {
 location ~ /contacts {
   try_files /build/contacts.html =404;
 }
+location ~ /finance {
+  try_files /build/finance.html =404;
+}
 location ~ / {
   try_files /build/home.html =404;
 }

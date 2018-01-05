@@ -57,6 +57,7 @@ var views = [
   'contacts',
   'articles',
   'article',
+  'finance',
 ]
 .reduce((all, template) => (
   all[template] = {
@@ -153,11 +154,14 @@ module.exports = async (config, location) => {
     events: await varnalab.events(),
     members: await varnalab.members(),
     articles: await varnalab.articles(),
+    cashbox: await varnalab.cashbox(),
   }
-
-  if (!context.upcoming || !context.events || !context.members || !context.articles) {
-    return Promise.reject('REST API Error!')
-  }
+debugger
+  ;['upcoming', 'events', 'members', 'articles', 'cashbox'].forEach((api) => {
+    if (!context[api]) {
+      return Promise.reject('REST API Error!')
+    }
+  })
 
   var render = Render(location, context)
   return Promise.all(

@@ -96,5 +96,27 @@ module.exports = (config) => {
         .map((article) => (t.created(article), t.url(article), article))
       )
 
-  return {upcoming, events, members, articles}
+  var cashbox = () =>
+    varnalab
+      .get('finance/invbg/cashbox')
+      .request()
+      .then(([res, body]) => body
+        // filter out removed items
+        .filter((item) => /^\d+$/.test(item['Движение номер']))
+        .map((item) => ({
+          id: parseInt(item['Движение номер']),
+          date: item['Дата'],
+          type:
+            item['Тип'] === 'Приход' ? 'income' :
+            item['Тип'] === 'Разход' ? 'expense' : '',
+          amount: item['Стойност'],
+          reason: item['Основание'],
+          category: item['Категория'],
+          notes: item['Забележки'],
+          admin: item['Контрагент'],
+        }))
+        .sort((a, b) => b.id - a.id)
+      )
+
+  return {upcoming, events, members, articles, cashbox}
 }

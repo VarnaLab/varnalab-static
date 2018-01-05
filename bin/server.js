@@ -24,6 +24,7 @@ module.exports = (config) => {
   app.use(`${prefix}/members`, static(config.html, {index: 'members.html'}))
   app.use(`${prefix}/links`, static(config.html, {index: 'links.html'}))
   app.use(`${prefix}/contacts`, static(config.html, {index: 'contacts.html'}))
+  app.use(`${prefix}/finance`, static(config.html, {index: 'finance.html'}))
 
   app.use(`${prefix}/events/:page`, (req, res) => {
     fs.readFile(

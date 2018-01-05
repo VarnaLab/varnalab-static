@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="span9">
+
+    <section>
+      <h3 class="section-title">
+        <span>финанси</span>
+      </h3>
+
+      <table class="v-finance">
+        <thead>
+          <tr>
+            <th>Дата</th>
+            <th>Стойност</th>
+            <th>Основание</th>
+            <th>Категория</th>
+            <th>Забележки</th>
+            <th>Администратор</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#cashbox}}
+          <tr class="{{type}}">
+            <td>{{date}}</td>
+            <td>{{amount}}</td>
+            <td>{{reason}}</td>
+            <td>{{category}}</td>
+            <td>{{notes}}</td>
+            <td>{{admin}}</td>
+          </tr>
+          {{/cashbox}}
+        </tbody>
+      </table>
+
+    </section>
+
+  </div>
+  {{>layout/sidebar}}
+</div>

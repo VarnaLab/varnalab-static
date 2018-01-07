@@ -1,12 +1,33 @@
 <div class="row">
   <div class="span9">
 
-    <section>
+    <section class="v-finance">
       <h3 class="section-title">
         <span>финанси</span>
       </h3>
 
-      <table class="v-finance">
+      {{#cashbox}}
+
+      {{#total}}
+      <table class="total">
+        <thead>
+          <tr>
+            <th>Приход</th>
+            <th>Разход</th>
+            <th>Текущо салдо</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{income}}</td>
+            <td>{{expense}}</td>
+            <td>{{current}}</td>
+          </tr>
+        </tbody>
+      </table>
+      {{/total}}
+
+      <table class="entries">
         <thead>
           <tr>
             <th>Дата</th>
@@ -18,7 +39,7 @@
           </tr>
         </thead>
         <tbody>
-          {{#cashbox}}
+          {{#entries}}
           <tr class="{{type}}">
             <td>{{date}}</td>
             <td>{{amount}}</td>
@@ -27,9 +48,10 @@
             <td>{{notes}}</td>
             <td>{{admin}}</td>
           </tr>
-          {{/cashbox}}
+          {{/entries}}
         </tbody>
       </table>
+      {{/cashbox}}
 
     </section>
 

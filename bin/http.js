@@ -100,7 +100,8 @@ module.exports = (config) => {
     varnalab
       .get('finance/invbg/cashbox')
       .request()
-      .then(([res, body]) => body
+      .then(([res, body]) => {
+        var entries = body
         // filter out removed items
         .filter((item) => /^\d+$/.test(item['Движение номер']))
         .map((item) => ({
@@ -109,14 +110,30 @@ module.exports = (config) => {
           type:
             item['Тип'] === 'Приход' ? 'income' :
             item['Тип'] === 'Разход' ? 'expense' : '',
-          amount: item['Стойност'],
+          amount: parseFloat(item['Стойност']),
           reason: item['Основание'],
           category: item['Категория'],
           notes: item['Забележки'],
           admin: item['Контрагент'],
         }))
         .sort((a, b) => b.id - a.id)
-      )
+
+        var income = entries
+          .filter((entry) => entry.type === 'income')
+          .reduce((sum, entry) => sum += entry.amount, 0.0)
+
+        var expense = entries
+          .filter((entry) => entry.type === 'expense')
+          .reduce((sum, entry) => sum += entry.amount, 0.0)
+
+        return {
+          entries,
+          total: {
+            income: income.toFixed(2),
+            expense: expense.toFixed(2),
+            current: (income - -expense).toFixed(2)}
+        }
+      })
 
   return {upcoming, events, members, articles, cashbox}
 }

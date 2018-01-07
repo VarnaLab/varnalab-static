@@ -156,7 +156,7 @@ module.exports = async (config, location) => {
     articles: await varnalab.articles(),
     cashbox: await varnalab.cashbox(),
   }
-debugger
+
   ;['upcoming', 'events', 'members', 'articles', 'cashbox'].forEach((api) => {
     if (!context[api]) {
       return Promise.reject('REST API Error!')

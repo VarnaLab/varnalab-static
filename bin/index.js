@@ -6,6 +6,7 @@ if (argv.help) {
   console.log('--config /path/to/config.json')
   console.log('--render /path/to/render/location/')
   console.log('--server /path/to/serve/location/')
+  console.log('--force')
   console.log('--env environment')
   process.exit()
 }
@@ -51,7 +52,7 @@ if (argv.render) {
   if (!fs.existsSync(path.join(location, '/articles'))) {
     fs.mkdirSync(path.join(location, '/articles'))
   }
-  render(config, location)
+  render(config, location, argv.force)
     .then(() => console.log('VarnaLab Static Render Complete'))
     .catch((err) => console.error(err))
 }

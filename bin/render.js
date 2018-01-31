@@ -144,10 +144,10 @@ var Render = (location, context) => ({
 })
 
 
-module.exports = async (config, location) => {
+module.exports = async (config, location, force) => {
 
   if (config.fs) {
-    var varnalab = FS(config)
+    var varnalab = FS(config, force)
     var context = Object.assign({
       path: config.url.path,
       api: config.url.api,

@@ -23,12 +23,12 @@ var upcoming = (events) => {
 }
 
 
-module.exports = (config) => {
+module.exports = (config, force) => {
 
   var modified = Object.keys(config.fs)
     .some((file) => fs.statSync(config.fs[file]).mtimeMs > Date.now() - (1000 * 60 * 10))
 
-  if (modified) {
+  if (modified || force) {
     var articles = require(config.fs.articles)
     var events = require(config.fs.events)
     var members = require(config.fs.members)

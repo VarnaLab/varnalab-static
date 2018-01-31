@@ -1,5 +1,5 @@
 var utils = {
-  url: ({scheme, host, path}, endpoint) =>
+  url: ({url: {scheme, host, path}}, endpoint) =>
     scheme + '://' + host + path.replace(/\/$/, '') + endpoint,
 
   description: (string) => string
@@ -33,15 +33,15 @@ module.exports = {
     {name: 'twitter:card', content: event.photo},
     {name: 'twitter:image:alt', content: 'VarnaLab'},
   ],
-  defaults: (args) => defaults.concat([
+  defaults: (config) => defaults.concat([
     {property: 'og:title', content: 'VarnaLab'},
     {property: 'og:description', content: 'VarnaLab - свободно място за споделяне на знание, идеи и технологии.'},
-    {property: 'og:image', content: utils.url(args, '/images/meta-cover.png')},
+    {property: 'og:image', content: utils.url(config, '/images/meta-cover.png')},
     {property: 'og:image:alt', content: 'VarnaLab Cover'},
-    {property: 'og:url', content: utils.url(args, '/')},
+    {property: 'og:url', content: utils.url(config, '/')},
     {property: 'og:site_name', content: 'VarnaLab'},
     {property: 'og:type', content: 'website'},
-    {name: 'twitter:card', content: utils.url(args, '/images/meta-cover.png')},
+    {name: 'twitter:card', content: utils.url(config, '/images/meta-cover.png')},
     {name: 'twitter:image:alt', content: 'VarnaLab'},
   ])
 }

@@ -149,16 +149,16 @@ module.exports = async (config, location) => {
   if (config.fs) {
     var varnalab = FS(config)
     var context = Object.assign({
-      path: config.path,
-      api: config.api,
+      path: config.url.path,
+      api: config.url.api,
       meta: meta.defaults(config),
     }, varnalab)
   }
   else {
     var varnalab = HTTP(config)
     var context = {
-      path: config.path,
-      api: config.api,
+      path: config.url.path,
+      api: config.url.api,
       meta: meta.defaults(config),
       upcoming: await varnalab.upcoming(),
       events: await varnalab.events(),

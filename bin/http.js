@@ -9,7 +9,7 @@ module.exports = (config) => {
     provider: 'varnalab',
     config: {
       varnalab: {
-        [config.api]: {'{endpoint}': {__path: {alias: '__default'}}}
+        [config.url.api]: {'{endpoint}': {__path: {alias: '__default'}}}
       }
     }
   })

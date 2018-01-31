@@ -25,14 +25,14 @@ var upcoming = (events) => {
 
 module.exports = (config) => {
 
-  var modified = Object.keys(config.db)
-    .some((file) => fs.statSync(config.db[file]).mtimeMs > Date.now() - (1000 * 60 * 10))
+  var modified = Object.keys(config.fs)
+    .some((file) => fs.statSync(config.fs[file]).mtimeMs > Date.now() - (1000 * 60 * 10))
 
   if (modified) {
-    var articles = require(config.db.articles)
-    var events = require(config.db.events)
-    var members = require(config.db.members)
-    var cashbox = require(config.db.cashbox)
+    var articles = require(config.fs.articles)
+    var events = require(config.fs.events)
+    var members = require(config.fs.members)
+    var cashbox = require(config.fs.cashbox)
 
     return {
       upcoming: transform.events(upcoming(events)),

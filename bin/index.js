@@ -5,7 +5,7 @@ var argv = require('minimist')(process.argv.slice(2))
 if (argv.help) {
   console.log('--config /path/to/config.json')
   console.log('--render /path/to/render/location/')
-  console.log('--server')
+  console.log('--server /path/to/serve/location/')
   console.log('--env environment')
   process.exit()
 }
@@ -24,6 +24,11 @@ if (!env) {
 
 if (argv.render && typeof argv.render !== 'string') {
   console.log('Specify --render /path/to/render/location/')
+  process.exit()
+}
+
+if (argv.server && typeof argv.server !== 'string') {
+  console.log('Specify --server /path/to/serve/location/')
   process.exit()
 }
 
@@ -52,9 +57,10 @@ if (argv.render) {
 }
 
 else if (argv.server) {
-  var server = Server(config)
-  server.listen(config.port, () =>
-    console.log('VarnaLab Static Server', config.port)
+  var location = path.resolve(process.cwd(), argv.server)
+  var server = Server(config, location)
+  server.listen(config.server.port, () =>
+    console.log('VarnaLab Static Server', config.server.port)
   )
 }
 

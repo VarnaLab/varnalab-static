@@ -4,6 +4,7 @@ var path = require('path')
 var util = require('util')
 var hogan = require('hogan.js')
 var HTTP = require('./http')
+var FS = require('./fs')
 var meta = require('./meta')
 var write = util.promisify(fs.writeFile)
 
@@ -144,29 +145,36 @@ var Render = (location, context) => ({
 
 
 module.exports = async (config, location) => {
-  var varnalab = HTTP(config)
 
-  var context = {
-    path: config.path,
-    api: config.api,
-    meta: meta.defaults(config),
-    upcoming: await varnalab.upcoming(),
-    events: await varnalab.events(),
-    members: await varnalab.members(),
-    articles: await varnalab.articles(),
-    cashbox: await varnalab.cashbox(),
+  if (config.fs) {
+    var varnalab = FS(config)
+    var context = Object.assign({
+      path: config.path,
+      api: config.api,
+      meta: meta.defaults(config),
+    }, varnalab)
+  }
+  else {
+    var varnalab = HTTP(config)
+    var context = {
+      path: config.path,
+      api: config.api,
+      meta: meta.defaults(config),
+      upcoming: await varnalab.upcoming(),
+      events: await varnalab.events(),
+      members: await varnalab.members(),
+      articles: await varnalab.articles(),
+      cashbox: await varnalab.cashbox(),
+    }
   }
 
-  ;['upcoming', 'events', 'members', 'articles', 'cashbox'].forEach((api) => {
-    if (!context[api]) {
-      return Promise.reject('REST API Error!')
-    }
-  })
-
-  var render = Render(location, context)
-  return Promise.all(
-    render.views()
-      .concat(render.events())
-      .concat(render.articles())
-    )
+  // only when files are modified
+  if (Object.keys(context).length > 3) {
+    var render = Render(location, context)
+    return Promise.all(
+      render.views()
+        .concat(render.events())
+        .concat(render.articles())
+      )
+  }
 }

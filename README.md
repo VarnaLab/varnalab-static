@@ -41,13 +41,22 @@ node bin/ --config config.json --env development --server
 ```json
 {
   "production": {
-    "scheme": "https",
-    "host": "varnalab.org",
-    "path": "",
-    "port": 5050,
-    "assets": "/home/varnalab/projects/varnalab-static",
-    "html": "/home/varnalab/config/varnalab-static/build",
-    "api": "https://box.outofindex.com/varnalab/api",
+    "url": {
+      "scheme": "https",
+      "host": "varnalab.org",
+      "path": "",
+      "api": "https://box.outofindex.com/varnalab/api"
+    },
+    "server": {
+      "assets": "/home/varnalab/projects/varnalab-static",
+      "port": 5050
+    },
+    "fs": {
+      "articles": "/path/to/articles.json",
+      "events": "/path/to/events.json",
+      "members": "/path/to/users.json",
+      "cashbox": "/path/to/invbg.json"
+    },
     "git": {
       "repo": "/home/s/projects/varnalab-static",
       "remote": "varnalab",
@@ -57,7 +66,20 @@ node bin/ --config config.json --env development --server
   }
 }
 ```
-> Note: "git" settings is not used in development environment
+
+- `url` ___(required)___
+  - used to generate relative paths for the templates
+  - used to generate absolute paths for server-side meta tag rendering
+  - the api endpoint is used for rendering when the `fs` key is not present, and inside the whois widget
+- `server` _(optional)_
+  - used by the built-in static nodejs server
+  - otherwise use the nginx config below to serve the static content
+- `fs` _(optional)_
+  - used to load the dynamic data locally. Renders only when any of the files is modified in the last 10mins. Use the `--force` flag to force the render.
+  - otherwise falls back to making HTTP requests to the varnalab-api
+- `git` _(optional)_
+  - githook configuration for the varnalab-static repo
+  - used only in production
 
 ## Render
 
@@ -74,7 +96,7 @@ node varnalab-static/bin/ \
 node varnalab-static/bin/ \
   --config /path/to/config.json \
   --env production \
-  --server
+  --server /path/to/build/location/
 ```
 
 ## NginX Router

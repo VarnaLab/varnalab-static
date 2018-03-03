@@ -8139,6 +8139,10 @@ header:after { content: ''; display: block; clear: both; }
   padding: 0 5px 0 0;
 }
 
+#temperature {
+  margin-left: 10px;
+}
+
 .contacts dt {
   margin: 10px 0 0 0;
 }

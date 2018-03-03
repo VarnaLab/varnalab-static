@@ -30,6 +30,7 @@ var layout = [
 
 var widgets = [
   'whois',
+  'temperature',
   'facebook',
   'google',
   'twitter',
@@ -69,6 +70,7 @@ var views = [
     'view/content': compile('view', template),
 
     'widget/whois': widgets.whois,
+    'widget/temperature': widgets.temperature,
     'widget/facebook': widgets.facebook,
     'widget/twitter': widgets.twitter,
     'widget/google': widgets.google,

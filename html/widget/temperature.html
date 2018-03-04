@@ -1,45 +1,46 @@
 <script type="text/javascript" charset="utf-8">
-  function get (endpoint, done) {
-    var req = new XMLHttpRequest()
-    req.addEventListener('load', function () {
-      var data
-      try {
-        data = JSON.parse(this.responseText)
+  var temp = {
+    get: function (endpoint, done) {
+      var req = new XMLHttpRequest()
+      req.addEventListener('load', function () {
+        var data
+        try {
+          data = JSON.parse(this.responseText)
+        }
+        catch (err) {
+          console.error(err)
+        }
+        done(data)
+      })
+      req.open('GET', endpoint)
+      req.send()
+    },
+    render: function (data) {
+      var dom
+
+      if (!data || !data.feeds) {
+        dom = '<p><em>Услугата временно не е налична!</em></p>'
       }
-      catch (err) {
-        console.error(err)
+      else {
+        dom =
+              '<p><em>Зала 1 - <strong>' + data.feeds[0].field1.replace(/\.\d+/, '') + ' °C</strong></em></p>' +
+              '<p><em>Зала 2 - <strong>' + data.feeds[0].field3.replace(/\.\d+/, '') + ' °C</strong></em></p>' +
+              '<p><em>Последно обновено<br>' +
+              new Date(data.feeds[0].created_at).toLocaleString('bg-BG', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+              }) + '</em></p>'
       }
-      done(data)
-    })
-    req.open('GET', endpoint)
-    req.send()
+
+      document.querySelector('#temperature').innerHTML = dom
+    }
   }
 
-  function render (data) {
-    var dom
-
-    if (!data || !data.feeds) {
-      dom = '<li><em>Услугата временно не е налична!</em></li>'
-    }
-    else {
-      dom =
-            '<p><em>Зала 1 - <strong>' + data.feeds[0].field1.replace(/\.\d+/, '') + ' °C</strong></em></p>' +
-            '<p><em>Зала 2 - <strong>' + data.feeds[0].field3.replace(/\.\d+/, '') + ' °C</strong></em></p>' +
-            '<p><em>Последно обновено<br>' +
-            new Date(data.feeds[0].created_at).toLocaleString('bg-BG', {
-              weekday: 'long',
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-              hour: 'numeric',
-              minute: 'numeric',
-            }) + '</em></p>'
-    }
-
-    document.querySelector('#temperature').innerHTML = dom
-  }
-
-  get('https://api.thingspeak.com/channels/439597/feeds.json?api_key=FR3ZW4ACMT59AH1K&results=1', function (data) {
-    render(data)
+  temp.get('https://api.thingspeak.com/channels/439597/feeds.json?api_key=FR3ZW4ACMT59AH1K&results=1', function (data) {
+    temp.render(data)
   })
 </script>

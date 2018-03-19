@@ -28,10 +28,10 @@ cp config.json.example config.json
 $EDITOR config.json
 
 # render in the current folder
-node bin/ --config config.json --env development --render ./build/
+node bin/ --config config.json --env minimum-render-config-on-localhost --render ./build/
 
 # serve the static files using NodeJS
-node bin/ --config config.json --env development --server
+node bin/ --config config.json --env minimum-server-config-on-localhost --server ./build/
 
 # navigate to http://localhost:3000 in your favorite browser
 ```

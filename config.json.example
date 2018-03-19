@@ -1,17 +1,16 @@
 {
-  "development": {
-    "scheme": "http",
-    "host": "localhost:3000",
-    "path": "",
-    "port": 3000,
-    "assets": "/path/to/varnalab-static",
-    "html": "/path/to/varnalab-static/build",
-    "api": "https://box.outofindex.com/varnalab/api",
-    "git": {
-      "repo": "/path/to/varnalab-static",
-      "remote": "origin",
-      "branch": "master",
-      "secret": ""
+  "minimum-render-config-on-localhost": {
+    "url": {
+      "scheme": "",
+      "host": "",
+      "path": "",
+      "api": "https://box.outofindex.com/varnalab/api"
+    }
+  },
+  "minimum-server-config-on-localhost": {
+    "server": {
+      "assets": "[/absolute/path/to/render/location]",
+      "port": 3000
     }
   }
 }

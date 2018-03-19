@@ -9,7 +9,7 @@
   },
   "minimum-server-config-on-localhost": {
     "server": {
-      "assets": "[/absolute/path/to/render/location]",
+      "assets": "[/absolute/path/to/varnalab-static/location]",
       "port": 3000
     }
   }

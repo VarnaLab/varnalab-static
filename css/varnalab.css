@@ -8032,8 +8032,13 @@ section .member .avatar {
   border-bottom: solid 1px #757575;
 }
 .teaser .teaser-text-with-icon {
+/*
   float: right;
   width: 150px;
+*/
+}
+.teaser .megaphone {
+  margin-right: 10px;
 }
 .teaser .avatar {
   margin: 0 10px 10px 0;
@@ -8065,7 +8070,7 @@ footer {
 
 
 .logo { float: left; }
-.nav { float: left; margin-left: 100px; }
+.nav { float: left; margin-left: 50px; }
 header:after { content: ''; display: block; clear: both; }
 
 /*TODO: set class*/
@@ -8142,6 +8147,9 @@ header:after { content: ''; display: block; clear: both; }
 #temperature {
   margin-left: 10px;
 }
+#temperature p:last-child {
+  margin: 0px;
+}
 
 .contacts dt {
   margin: 10px 0 0 0;
@@ -8174,6 +8182,12 @@ header:after { content: ''; display: block; clear: both; }
 }
 .v-learn span {
   padding: 0 7px;
+}
+.v-learn a:hover {
+  text-decoration: none;
+}
+.teaser .v-learn {
+  float: left;
 }
 
 #mobile-overlay {

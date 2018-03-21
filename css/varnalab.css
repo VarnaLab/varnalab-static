@@ -8056,6 +8056,16 @@ section .member .avatar {
   background-repeat: no-repeat;
   background-position: bottom right;
 }
+.teaser-background-3 {
+  background-image: url(../images/teaser-background-3.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+.teaser-background-4 {
+  background-image: url(../images/teaser-background-4.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
 footer {
   margin: 40px 0 0 0;
   padding: 20px 0 50px 0;

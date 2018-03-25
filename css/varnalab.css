@@ -7932,7 +7932,7 @@ header .nav li a {
   -o-transition: all 400ms;
   transition: all 400ms;
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
 }
 header .nav li a:hover {
   background: none;

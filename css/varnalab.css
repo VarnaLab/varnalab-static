@@ -8299,8 +8299,17 @@ footer a:focus {
     text-decoration: none;
 }
 
-/******************** END popjelev ********************/
-/******************** END popjelev ********************/
-/******************** END popjelev ********************/
-
+div.apply-recepient {
+	float: right;
+}
+input.application-field {
+	text-align: center;
+	border: none;
+    background: none;
+    box-shadow: none;
+    border-bottom: 2px dotted black;
+}
+div.section-item .apply-indent {
+	text-indent: 40px;
+}
 

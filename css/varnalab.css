@@ -8313,3 +8313,7 @@ div.section-item .apply-indent {
 	text-indent: 40px;
 }
 
+.last-update {
+	font-size: 10px;
+	line-height: 10px;
+}

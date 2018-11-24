@@ -4,7 +4,7 @@
       "scheme": "",
       "host": "",
       "path": "",
-      "api": "https://box.outofindex.com/varnalab/api"
+      "api": "https://box.outofindex.com/api/varnalab"
     }
   },
   "minimum-server-config-on-localhost": {

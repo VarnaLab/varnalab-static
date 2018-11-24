@@ -45,7 +45,7 @@ node bin/ --config config.json --env minimum-server-config-on-localhost --server
       "scheme": "https",
       "host": "varnalab.org",
       "path": "",
-      "api": "https://box.outofindex.com/varnalab/api"
+      "api": "https://box.outofindex.com/api/varnalab"
     },
     "server": {
       "assets": "/home/varnalab/projects/varnalab-static",

@@ -7932,7 +7932,7 @@ header .nav li a {
   -o-transition: all 400ms;
   transition: all 400ms;
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
 }
 header .nav li a:hover {
   background: none;
@@ -8053,6 +8053,16 @@ section .member .avatar {
 }
 .teaser-background-2 {
   background-image: url(../images/teaser-background-2.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+.teaser-background-3 {
+  background-image: url(../images/teaser-background-3.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+.teaser-background-4 {
+  background-image: url(../images/teaser-background-4.png);
   background-repeat: no-repeat;
   background-position: bottom right;
 }
@@ -8289,8 +8299,21 @@ footer a:focus {
     text-decoration: none;
 }
 
-/******************** END popjelev ********************/
-/******************** END popjelev ********************/
-/******************** END popjelev ********************/
+div.apply-recepient {
+	float: right;
+}
+input.application-field {
+	text-align: center;
+	border: none;
+    background: none;
+    box-shadow: none;
+    border-bottom: 2px dotted black;
+}
+div.section-item .apply-indent {
+	text-indent: 40px;
+}
 
-
+.last-update {
+	font-size: 10px;
+	line-height: 10px;
+}

@@ -1,6 +1,62 @@
 <div class="row">
   <div class="span9">
 
+    <section id="donate" class="donate">
+      <h3 class="section-title">
+        <span>Дарения</span>
+      </h3>
+
+      <div class="section-item">
+        <p>
+          Моля, изберете размера на дарението, което желаете да направите (с карта, през система myPOS):
+        </p>
+        <form class="form-horizontal" action="https://www.mypos.eu/vmp/btn/" method="post">
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">Размер на дарението:</label>
+            <div class="controls">
+              <select class="input-small" name="button_id">
+                <option value="BPLYT37KR8A97">1лв</option>
+                <option value="B797IWWRHLP86">2лв</option>
+                <option value="BNLWPKOMMYT29">3лв</option>
+                <option value="BLGSKQWMZPX23">4лв</option>
+                <option value="BYJRJX8TISB55">5лв</option>
+{{!
+                <option value="BQVST3A7N1917">6лв</option>
+                <option value="BRHJVR7897V98">7лв</option>
+                <option value="B9H2DY9RNR221">8лв</option>
+                <option value="BCIGGLSD9L723">9лв</option>
+}}
+                <option value="B75C93OLWXK18">10лв</option>
+                <option value="BOGDL7VU8SU73" selected="selected">20лв</option>
+                <option value="BIOSJFEI4CR05">30лв</option>
+                <option value="BQP73QYPCPM76">40лв</option>
+                <option value="B9OZ2IWANV988">50лв</option>
+                <option value="B6G37DZBM3M46">60лв</option>
+                <option value="BJNJEUH6ASC06">70лв</option>
+                <option value="B8GODGC5JVK20">80лв</option>
+                <option value="B8OV95HX6W514">90лв</option>
+                <option value="BG5UZTRNE7M73">100лв</option>
+              </select>
+              <button class="btn" name="submit">Дари през myPOS</button>
+            </div>
+          </div>
+        </form>
+        <p>
+          В случай, че желаете да дарите средства по банков път,
+          моля използвайте сметка в BGN с IBAN BG37INTF40015013262595
+          и получател Сдружение "ВарнаЛаб".
+        </p>
+        <p>
+          Юридическите лица (фирми), задължително трябва да направят дарението по банков път, за да получат данъчни облекчения.
+          За целта, моля, прочетете <a href='#company-donation'>информацията за юридически лица</a>.
+        </p>
+        <p>
+          Ако желаете да внесете <strong>членски внос</strong>, може да го направите в раздел <a href="#membership">Членски внос</a>,
+          който се намира в края на текущата страница. 
+        </p>
+      </div>
+    </section>
+
     <section>
       <h3 class="section-title">
         <span>Информация и цели</span>
@@ -23,56 +79,28 @@
         <h3>Кой начин на плащане да използвам?</h3>
         <ul>
           <li>С карта, през системата myPOS, като изберете една от сумите, посочени във формите по-долу.</li>
-          <li>По банков път към сметка в BGN с IBAN BG37INTF40015013262595.</li>
-          <li>През PayPal на адрес <a href="https://www.paypal.me/varnalab">paypal.me/varnalab</a>. Ако е възможно, избягвайте този метод, тъй като таксите са доста високи/</li>
+          <li>По банков път към сметка в BGN с <strong>IBAN BG37INTF40015013262595</strong> и получател ВарнаЛаб или VarnaLab.</li>
+          <li>През PayPal на адрес <a href="https://www.paypal.me/varnalab">paypal.me/varnalab</a>. Ако е възможно, избягвайте този метод, тъй като таксите са доста високи.</li>
           <li>В брой, като ги дадете директно на касиера и си кажете името.</li>
           <li>или като ги остави в касичката (пощенската кутия), завити в бележка с твоето име.</li>
         </ul>
-        <p>Ще се радваме, ако за основание на плащането използвате формат напр: членски внос 2018-01 Иван Петров</p>
+        <p>Ще се радваме, ако за основание на плащането по банка използвате следните примерни формати:</p>
+        <ul>
+          <li>за дарения: дарение <em>или</em> дарение за ...[цел на дарението]...</li>
+          <li>за членски внос: членски внос 2018-01 Иван Петров</li>
+        </ul>
       </div>
-    </section>
-
-    <section class="donate">
-      <h3 class="section-title">
-        <span>Дарения</span>
-      </h3>
-
+      
+      <div id="company-donation" class="section-item">
+        <h3>Могат ли юридически лица (фирми) да правят дарения?</h3>
+        <p>Даренията към организации с нестопанска цел, чиято дейност е в обществена полза носят данъчни облекчения за юридическите лица.</p>
+        <p>За да бъде признато дарението, трябва да направите банков превод, в чието основание задължително трябва да напишете "дарение" и ако желаете може да упоменете за какво е то, ако то има конкретна цел.</p>
+        <p>След това банковото извлечение е документ, който се признава. Ако желаете, можем да ви подготвим удостоверение/разписка/квитанция за дарение или да подпишем договор за дарение. Фактура за дарението не се издава.</p>
+      </div>
+      
       <div class="section-item">
-        <p>
-          Моля, изберете размера на дарението, което желаете да направите (с карта, през система myPOS):
-        </p>
-        <form class="form-horizontal" action="https://www.mypos.eu/vmp/btn/" method="post" target="_blank">
-          <div class="control-group">
-            <label class="control-label" for="inputEmail">Размер на дарението:</label>
-            <div class="controls">
-              <select class="input-small" name="button_id">
-                <option value="BPLYT37KR8A97">1лв</option>
-                <option value="B797IWWRHLP86">2лв</option>
-                <option value="BNLWPKOMMYT29">3лв</option>
-                <option value="BLGSKQWMZPX23">4лв</option>
-                <option value="BYJRJX8TISB55">5лв</option>
-                <option value="BQVST3A7N1917">6лв</option>
-                <option value="BRHJVR7897V98">7лв</option>
-                <option value="B9H2DY9RNR221">8лв</option>
-                <option value="BCIGGLSD9L723">9лв</option>
-                <option value="B75C93OLWXK18">10лв</option>
-                <option value="BOGDL7VU8SU73">20лв</option>
-                <option value="BIOSJFEI4CR05">30лв</option>
-                <option value="BQP73QYPCPM76">40лв</option>
-                <option value="B9OZ2IWANV988">50лв</option>
-                <option value="B6G37DZBM3M46">60лв</option>
-                <option value="BJNJEUH6ASC06">70лв</option>
-                <option value="B8GODGC5JVK20">80лв</option>
-                <option value="B8OV95HX6W514">90лв</option>
-                <option value="BG5UZTRNE7M73">100лв</option>
-              </select>
-              <button class="btn" name="submit">Дари през myPOS</button>
-            </div>
-          </div>
-        </form>
-        <p>
-          В случай, че желаете да дарите средства по банков път, моля използвайте сметка в BGN с IBAN BG37INTF40015013262595.
-        </p>
+        <h3>Могат ли да даря предмети?</h3>
+        <p>Разбира се, стига да са полезни за Лаба. Това може да са мебели, техника, инструменти, материали, консумативи и др.</p>
       </div>
     </section>
 
@@ -83,13 +111,13 @@
 
       <div class="section-item">
         <p>Моля, изберете размера на вноската, което желаете да внесете (с карта, през система myPOS):</p>
-        <form class="form-horizontal" action="https://www.mypos.eu/vmp/btn/" method="post" target="_blank">
+        <form class="form-horizontal" action="https://www.mypos.eu/vmp/btn/" method="post">
           <div class="control-group">
             <label class="control-label" for="inputEmail">Размер на вноската:</label>
             <div class="controls">
               <select class="input-small" name="button_id">
                 <option value="BJC3GEZWECV93">10лв</option>
-                <option value="B42OV9V8GVE14">20лв</option>
+                <option value="B42OV9V8GVE14" selected="selected">20лв</option>
                 <option value="BW1PNAY1MJY80">30лв</option>
                 <option value="BXUPYPA7JBX54">40лв</option>
                 <option value="BPBB8USOVTC72">50лв</option>
@@ -104,12 +132,18 @@
           </div>
         </form>
         <p>
-          В случай, че желаете да направите вноската по банков път, моля използвайте сметка в BGN с IBAN BG37INTF40015013262595.
+          В случай, че желаете да направите вноската по банков път,
+          моля използвайте сметка в BGN с IBAN BG37INTF40015013262595
+          и получател Сдружение "ВарнаЛаб".
+        </p>
+        <p>
+          Ако желаете да направите <strong>дарение</strong>, може да го направите в раздел <a href="#donate">Дарения</a>,
+          който се намира в края на текущата страница. 
         </p>
       </div>
 
       <div class="section-item">
-        <h3>Колко е членския внос?</h3>
+        <h3>Какъв е размера на членския внос?</h3>
         <p>
           Всеки сам избира с колко може да помогне. Няма нито минимум, нито максимум. Обикновено е между 10лв и 50лв.<br />
           Повечето хора, които използват Лаба за работно място, обикновено внасят по 50лв, тъй като голяма част от разходите отиват освен за наем и за ел. енергия.

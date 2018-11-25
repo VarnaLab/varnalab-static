@@ -25,7 +25,7 @@
         dom =
               '<p><em>Зала 1 - <strong>' + data.feeds[0].field1.replace(/\.\d+/, '') + ' °C</strong></em></p>' +
               '<p><em>Зала 2 - <strong>' + data.feeds[0].field3.replace(/\.\d+/, '') + ' °C</strong></em></p>' +
-              '<p><em>Последно обновено<br>' +
+              '<p class="last-update"><em>Последно обновено<br>' +
               new Date(data.feeds[0].created_at).toLocaleString('bg-BG', {
                 weekday: 'long',
                 day: 'numeric',

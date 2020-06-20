@@ -60,8 +60,7 @@ var views = [
   'articles',
   'article',
   'finance',
-  'donate',
-  'apply',
+  'donate'
 ]
 .reduce((all, template) => (
   all[template] = {

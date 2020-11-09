@@ -40,7 +40,7 @@ module.exports = () => {
         date.getFullYear(),
         date.getMonth() + 1,
         date.getDate(),
-        article.slug
+        article.slug.replace(/["']/g, "")
       ].join('/')
       // url
       article.time1 = moment(date).format('LL'),

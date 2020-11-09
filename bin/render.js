@@ -136,6 +136,7 @@ var Render = (location, context) => ({
 
     return articles
       .map((article) => (
+        article.slug = article.slug.replace(/["']/g, ""),
         context.article = article,
         write(
           path.join(location, '/articles/', `${article.slug}.html`),

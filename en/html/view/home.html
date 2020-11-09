@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="span9">
+
+    <section>
+      <h3 class="section-title">
+        <span>Upcoming events</span>
+      </h3>
+
+      {{#upcoming}}
+      {{>content/event}}
+      <hr />
+      {{/upcoming}}
+
+      {{^upcoming}}
+      <p>No upcoming events</p>
+      {{/upcoming}}
+
+      <p class="v-past-events">
+        <a href="{{path}}/events"> Check all past events</a>
+      </p>
+
+      <br class="clearfix" />
+
+    </section>
+
+    <!-- {{>blogs}} -->
+
+  </div>
+
+  {{>layout/sidebar}}
+</div>

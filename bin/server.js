@@ -59,7 +59,7 @@ module.exports = (config, location) => {
     )
   })
 
-  app.use(`${prefix}/`, static(location, {index: 'home.html'}))
+  app.use(`${prefix}/`, static(location, {index: 'about.html'}))
 
   return app
 }

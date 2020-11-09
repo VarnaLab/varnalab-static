@@ -7587,10 +7587,6 @@ a.badge:focus {
   }
 }
 @media (max-width: 767px) {
-  body {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
   .navbar-fixed-top,
   .navbar-fixed-bottom,
   .navbar-static-top {
@@ -7611,6 +7607,10 @@ a.badge:focus {
   }
   .container {
     width: auto;
+  }
+  .content-inner {
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .row-fluid {
     width: 100%;
@@ -7954,13 +7954,14 @@ header .nav li:hover img {
 }
 @media (max-width: 1000px) {
   header .nav {
-    margin: 20px 0 0 0;
-    border-top: solid 4px #000;
-    float: none;
+    margin: 0 0 0 20px;
+    padding-top: 0;
+    max-width: calc(100% - 20px - 90px);
+    float: left;
   }
   header .nav-pills > li {
     float: none;
-    display: block;
+    display: inline-block;
   }
   header .nav li img {
     height: auto;
@@ -8068,7 +8069,7 @@ section .member .avatar {
 }
 footer {
   margin: 40px 0 0 0;
-  padding: 20px 0 50px 0;
+  padding: 20px 0 20px 0;
   border-top: solid 4px #000;
 }
 
@@ -8085,8 +8086,13 @@ header:after { content: ''; display: block; clear: both; }
 
 /*TODO: set class*/
 .section-title span {
-  font-size: 32px !important;
+  font-size: 24px !important;
   font-weight: bold !important;
+}
+@media (min-width: 768px) {
+  .section-title span {
+    font-size: 32px !important;
+  }
 }
 
 .v-event {

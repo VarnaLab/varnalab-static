@@ -8081,7 +8081,7 @@ footer {
 
 
 .logo { float: left; }
-.nav { float: left; margin-left: 50px; }
+.nav { margin-left: 50px; }
 header:after { content: ''; display: block; clear: both; }
 
 /*TODO: set class*/

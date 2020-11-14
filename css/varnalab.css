@@ -8327,3 +8327,13 @@ div.section-item .apply-indent {
 .teaser-facebook-like-box {
   text-align: center;
 }
+
+.youtubevideo {
+  min-height: 200px;
+}
+
+@media (min-width: 767px) {
+  .youtubevideo {
+    min-height: 410px;
+  }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{#meta}}
+    <meta {{#name}}name="{{name}}" {{/name}}{{#property}}property="{{property}}" {{/property}}{{#content}}content="{{content}}" {{/content}}{{#charset}}charset="{{charset}}" {{/charset}}/>
+    {{/meta}}
+    <title>VarnaLab</title>
+    <link rel="icon" type="image/x-icon" href="{{path}}/images/favicon.ico" />
+    <link href="{{path}}/css/varnalab.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="content">
+      <div class="content-inner">
+        <div class="container">
+          {{>layout/header}}
+          {{>view/content}}
+          {{>layout/footer}}
+        </div>
+      </div>
+    </div>
+    {{>widget/twitter}}
+    {{>widget/facebook}}
+    {{>widget/google}}
+    {{>widget/mobile}}
+  </body>
+</html>

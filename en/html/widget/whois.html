@@ -1,0 +1,61 @@
+<script type="text/javascript" charset="utf-8">
+  var whois = {
+    get: function (endpoint, done) {
+      var req = new XMLHttpRequest()
+      req.addEventListener('load', function () {
+        var data
+        try {
+          data = JSON.parse(this.responseText)
+        }
+        catch (err) {
+          console.error(err)
+        }
+        done(data)
+      })
+      req.open('GET', '{{api}}' + endpoint)
+      req.send()
+    },
+    render: function (online, users) {
+      var dom
+
+      if (!online || online.error || !users || users.error) {
+        dom = '<li><em>Service temporarily down!</em></li>'
+      }
+      else if (
+        (online.known && !online.known.length) &&
+        (online.unknown && !online.unknown.length)
+      ) {
+        dom = '<li><em>Nobody!</em></li>'
+      }
+      else {
+        var known = users.filter(function (user) {
+          return online.known.indexOf(user.id) !== -1
+        })
+
+        dom = known
+          .map(function (user) {
+            var avatar = 'https://gravatar.com/avatar/' + user.gravatar
+              + '?size=32&d=monsterid'
+            return '<li><img src="' + avatar + '">' + user.name + '</li>'
+          })
+          .join('')
+
+        dom += online.unknown
+          .map(function (device) {
+            return '<li>' + device.host + '</li>'
+          })
+          .join('')
+      }
+
+      document.querySelector('#whois').innerHTML = dom
+    }
+
+  }
+
+
+  whois.get('/whois/online', function (online) {
+    whois.get('/whois/known', function (users) {
+      whois.render(online, users)
+    })
+  })
+</script>

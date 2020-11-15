@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="span9">
+
+    <section>
+      <h3 class="section-title">
+        <span>Join VarnaLab</span>
+      </h3>
+      <div class="section-item">    
+        <p>
+          If you want to become VarnaLab member please check our
+          <a href="https://drive.google.com/file/d/0B8PcQ8epaaktNC1nN0JWZTRPNU0/view?usp=sharing">Charter (Bulgarian only)</a>.
+        </p>
+        <p>
+          If you share VarnaLab's goals and ideas - print and fill
+          <a href="https://drive.google.com/file/d/0B8PcQ8epaaktREVxOXVqMl9ZckU/view?usp=sharing">Membership application (Bulgarian only)</a>,
+          and bring it to VarnaLab.
+          <br />
+          For your convenience there are some printed copies of the Membership application left in VarnaLab.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-title">
+        <span>Members</span>
+      </h3>
+
+      {{#members}}
+      <div class="section-item member">
+        <article>
+          <img src="https://gravatar.com/avatar/{{gravatar}}?size=64&d=monsterid" alt="{{name}}" title="{{name}}" class="avatar pull-left" />
+          <p>
+            <strong>{{name}}</strong>
+            {{#twitter}}
+            <a href="https://twitter.com/{{twitter}}"><img src="{{path}}/images/icon-twitter.jpg" alt="{{twitter}}" alt="{{twitter}}" /></a>
+            {{/twitter}}
+            {{#github}}
+            <a href="https://github.com/{{github}}"><img src="{{path}}/images/icon-github.jpg" alt="{{github}}" alt="{{github}}" /></a>
+            {{/github}}
+          </p>
+          <br class="clear" />
+        </article>
+      </div>
+
+      <hr />
+      {{/members}}
+
+      <br class="clearfix" />
+
+    </section>
+
+  </div>
+  {{>layout/sidebar}}
+</div>

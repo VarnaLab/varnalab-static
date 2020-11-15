@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="span9">
+
+    <section class="v-finance">
+      <h3 class="section-title">
+        <span>Finances</span>
+      </h3>
+
+      {{#cashbox}}
+
+      {{#total}}
+      <table class="total">
+        <thead>
+          <tr>
+            <th>Income</th>
+            <th>Expense</th>
+            <th>Current</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{income}}</td>
+            <td>{{expense}}</td>
+            <td>{{current}}</td>
+          </tr>
+        </tbody>
+      </table>
+      {{/total}}
+
+      <table class="entries">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Reason</th>
+            <th>Category</th>
+            <th>Notes</th>
+            <th>Administrator</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#entries}}
+          <tr class="{{type}}">
+            <td>{{date}}</td>
+            <td>{{amount}}</td>
+            <td>{{reason}}</td>
+            <td>{{category}}</td>
+            <td>{{notes}}</td>
+            <td>{{admin}}</td>
+          </tr>
+          {{/entries}}
+        </tbody>
+      </table>
+      {{/cashbox}}
+
+    </section>
+
+  </div>
+  {{>layout/sidebar}}
+</div>

@@ -1,0 +1,46 @@
+<script type="text/javascript" charset="utf-8">
+  var temp = {
+    get: function (endpoint, done) {
+      var req = new XMLHttpRequest()
+      req.addEventListener('load', function () {
+        var data
+        try {
+          data = JSON.parse(this.responseText)
+        }
+        catch (err) {
+          console.error(err)
+        }
+        done(data)
+      })
+      req.open('GET', endpoint)
+      req.send()
+    },
+    render: function (data) {
+      var dom
+
+      if (!data || !data.feeds) {
+        dom = '<p><em>Service temporarily down!</em></p>'
+      }
+      else {
+        dom =
+              '<p><em>Room 1 - <strong>' + data.feeds[0].field1.replace(/\.\d+/, '') + ' °C</strong></em></p>' +
+              '<p><em>Room 2 - <strong>' + data.feeds[0].field3.replace(/\.\d+/, '') + ' °C</strong></em></p>' +
+              '<p class="last-update"><em>Last updated<br>' +
+              new Date(data.feeds[0].created_at).toLocaleString('en-US', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+              }) + '</em></p>'
+      }
+
+      document.querySelector('#temperature').innerHTML = dom
+    }
+  }
+
+  temp.get('https://api.thingspeak.com/channels/439597/feeds.json?api_key=FR3ZW4ACMT59AH1K&results=1', function (data) {
+    temp.render(data)
+  })
+</script>

@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="span9">
+
+    <section>
+      <h3 class="section-title">
+        <span>Information</span>
+      </h3>
+
+      <div class="section-item">
+        <p>
+          This page is left as an archive because nobody is able to maintain it right now.
+          If you have spare time and want to join by writing an article - contact us using
+          one of the communication methods described in <a href="{{path}}/contacts">Contacts</a>.
+        </p>      
+      </div>
+    </section>
+    
+    <section>
+      <h3 class="section-title">
+        <span>Blog [ archive ]</span>
+      </h3>
+
+      {{#articles}}
+
+      <div class="section-item v-event">
+        <div class="section-date">
+          <strong class="date">{{time1}}</strong>
+          <br />{{time2}}
+          <br />{{time3}}
+        </div>
+        <h2>
+          <a href="{{path}}/{{url}}">{{title}}</a>
+        </h2>
+      </div>
+      <hr />
+      {{/articles}}
+
+      <br class="clearfix" />
+
+    </section>
+
+  </div>
+
+  {{>layout/sidebar}}
+</div>

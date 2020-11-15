@@ -1,0 +1,16 @@
+{
+  "minimum-render-config-on-localhost": {
+    "url": {
+      "scheme": "",
+      "host": "",
+      "path": "",
+      "api": "https://box.outofindex.com/api/varnalab"
+    }
+  },
+  "minimum-server-config-on-localhost": {
+    "server": {
+      "assets": "[/absolute/path/to/varnalab-static/location]",
+      "port": 3000
+    }
+  }
+}

@@ -18,15 +18,15 @@
     render: function (data) {
       var dom
 
-      if (!data || !data.feeds) {
+      if (!data || !data.data) {
         dom = '<p><em>Услугата временно не е налична!</em></p>'
       }
       else {
         dom =
-              '<p><em>Зала 1 - <strong>' + data.feeds[0].field1.replace(/\.\d+/, '') + ' °C</strong></em></p>' +
-              '<p><em>Зала 2 - <strong>' + data.feeds[0].field3.replace(/\.\d+/, '') + ' °C</strong></em></p>' +
+              '<p><em>Зала 1 - <strong>' + data.data[0].data1 + ' °C</strong></em></p>' +
+              '<p><em>Зала 2 - <strong>' + data.data[0].data3 + ' °C</strong></em></p>' +
               '<p class="last-update"><em>Последно обновено<br>' +
-              new Date(data.feeds[0].created_at).toLocaleString('bg-BG', {
+              new Date(data.data[0].created_at).toLocaleString('bg-BG', {
                 weekday: 'long',
                 day: 'numeric',
                 month: 'long',
@@ -40,7 +40,7 @@
     }
   }
 
-  temp.get('https://api.thingspeak.com/channels/439597/feeds.json?api_key=FR3ZW4ACMT59AH1K&results=1', function (data) {
+  temp.get('https://api.ivaka.net/read/varnalab/EV591490OD', function (data) {
     temp.render(data)
   })
 </script>

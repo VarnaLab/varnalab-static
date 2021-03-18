@@ -61,5 +61,10 @@ module.exports = (config, location) => {
 
   app.use(`${prefix}/`, static(location, {index: 'about.html'}))
 
+  app.use(`${prefix}/89fd43a2409b6e74768e5e5a66dcda43.txt`, (req, res) => {
+    res.set('content-type', 'text/plain')
+    res.send('')
+  })
+
   return app
 }
